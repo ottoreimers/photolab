@@ -1,31 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Container, Spinner, Row, Col, Image } from "react-bootstrap";
+import axios from "axios";
 
 const Home = () => {
   const [photos, setPhotos] = useState([]);
+  const [isLoading, setisLoading] = useState(false);
 
   useEffect(() => {
-    axios.get('https://picsum.photos/v2/list')
-    .then((res) => {
+
+    const sendPhotoRequest = async () => {
+      setisLoading(true);
+        const res = await axios.get("https://picsum.photos/v2/list")
         setPhotos(res.data);
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }, [])
-  console.log(photos)
+    };
+    sendPhotoRequest();
+    setisLoading(false);
+  }, []);
 
 
   return (
-    <div>
+    <>
       <Container>
-        {photos.map((photo, id) => {
-          return <img key={id} alt="" src={photo.download_url} className='w-50 border border-white p-2' />
-        })}
+        <Row>
+          <Col>
+            {isLoading ? (
+              <Spinner animation="grow"/>
+            ) : (
+              <>
+                {photos.map(photo => {
+                  return (
+                    <Image
+                      key={photo.id}
+                      alt=""
+                      src={photo.download_url}
+                      className="w-50 border border-white p-2"
+                    />
+                  );
+                })}
+              </>
+            )}
+          </Col>
+        </Row>
       </Container>
-    </div>
-  )
-}
+    </>
+  );
+};
 
 export default Home;

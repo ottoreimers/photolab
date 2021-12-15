@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { Container, Form, Button, Modal } from "react-bootstrap";
+import { Container, Form, Button, Modal, Nav } from "react-bootstrap";
 
-const Login = ({login}) => {
+const Login = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleOpen = () => setShow(true);
 
+
   return (
     <>
     <Container className="w-25 mt-5">
-      <Button className="nextButton" onClick={handleOpen}>
-        Open Modal
-      </Button>
+      <Nav.Link onClick={handleOpen}>Login</Nav.Link>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Login</Modal.Title>

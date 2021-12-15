@@ -1,35 +1,56 @@
-import React from 'react'
-import { Container,  Form, Button } from 'react-bootstrap'
+import React, {useState} from "react";
+import { Container, Form, Button, Modal, Nav } from "react-bootstrap";
 
 const Register = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
+
   return (
     <>
-    <Container className="w-25 mt-5">
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
+      <Container className="w-25 mt-5">
+      <Nav.Link onClick={handleOpen}>Register</Nav.Link>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Register</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="username" placeholder="Enter username" />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Button variant="secondary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </Container>
-  </>
-  )
-}
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
 
-export default Register
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+        </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Form>
+            <Button variant="secondary" type="submit">
+              Register
+            </Button>
+          </Form>
+        </Modal.Footer>
+      </Modal>
+      </Container>
+    </>
+  );
+};
+
+export default Register;
