@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Spinner, Row, Col, Image } from "react-bootstrap";
 import axios from "axios";
 
-const Home = () => {
+const HomeLayout = () => {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setisLoading] = useState(false);
 
@@ -46,4 +46,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeLayout;

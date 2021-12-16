@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Form } from "react-bootstrap";
 
-const UserProfile = () => {
+const UserLayout = () => {
   return (
     <>
       <Container>
@@ -15,4 +15,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default UserLayout;

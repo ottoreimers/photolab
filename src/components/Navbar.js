@@ -1,8 +1,6 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "../Pages/Home";
-import UserProfile from "../Pages/UserProfile";
+import { Link } from "react-router-dom";
 import Login from './Login';
 import Register from './Register';
 import Logout from './Logout'
@@ -11,7 +9,6 @@ const PhotoNavbar = () => {
 
   return (
     <>
-      <Router>
         <Navbar
           collapseOnSelect
           expand="sm"
@@ -29,7 +26,7 @@ const PhotoNavbar = () => {
                 </Nav.Link>
                 <Login />
                 <Register />
-                <Nav.Link as={Link} to="/userpage">
+                <Nav.Link as={Link} to="/profile">
                   Profile
                 </Nav.Link>
                 <Nav.Link>Logout</Nav.Link>
@@ -37,12 +34,6 @@ const PhotoNavbar = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/userpage" element={<UserProfile />} />
-        </Routes>
-      </Router>
     </>
   );
 };

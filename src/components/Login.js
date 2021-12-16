@@ -9,7 +9,7 @@ const Login = () => {
 
   return (
     <>
-    <Container className="w-25 mt-5">
+
       <Nav.Link onClick={handleOpen}>Login</Nav.Link>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
@@ -27,7 +27,7 @@ const Login = () => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password" autoComplete="on"/>
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -39,7 +39,6 @@ const Login = () => {
           </Form>
         </Modal.Footer>
       </Modal>
-      </Container>
     </>
   );
 };

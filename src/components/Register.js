@@ -8,7 +8,7 @@ const Register = () => {
 
   return (
     <>
-      <Container className="w-25 mt-5">
+
       <Nav.Link onClick={handleOpen}>Register</Nav.Link>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
@@ -31,12 +31,12 @@ const Register = () => {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Password" autoComplete="on"/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Confirm Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Password" autoComplete="on"/>
           </Form.Group>
         </Form>
         </Modal.Body>
@@ -48,7 +48,6 @@ const Register = () => {
           </Form>
         </Modal.Footer>
       </Modal>
-      </Container>
     </>
   );
 };
