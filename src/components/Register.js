@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Container, Form, Button, Modal, Nav } from "react-bootstrap";
+import { Form, Button, Modal, Nav } from "react-bootstrap";
 
 const Register = () => {
   const [show, setShow] = useState(false);
