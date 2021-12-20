@@ -4,7 +4,7 @@ const dbo = require('../db/conn');
 const multer = require('multer');
 const Aws = require('aws-sdk');
 const Photo = require('../models/photo.model');
-require('dotenv');
+require('dotenv').config({ path: '../config.env' });
 const ObjectId = require('mongodb').ObjectId;
 
 // Storage
